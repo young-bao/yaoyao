@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE html>
 <html>
   <head>
     <title>最喜欢的思瑶</title>
@@ -35,7 +35,7 @@
   <body>
     <div>
       <canvas id="testCanvas" width="550" height="500"></canvas>
-      <audio src="./song.mp3" autoplay />
+      <audio src="./song.mp3" autoplay id="audioRef"></audio>
     </div>
     <script
       type="text/javascript"
@@ -149,6 +149,15 @@
       }
 
       init();
+
+      const audioRef = document.getElementById("audioRef");
+      const playAudio = () => {
+        audioRef.play();
+      };
+      window.addEventListener("click", () => {
+        playAudio();
+        window.removeEventListener("click", playAudio);
+      });
     </script>
   </body>
 </html>
